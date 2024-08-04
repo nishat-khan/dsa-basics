@@ -11,9 +11,9 @@ def search_word_in_board(board, word):
         if i == len(word):
             return True
         if (
-            board[r][c]!=word[i] or
-            r >= ROWS or c >= COLUMNS or 
             r < 0 or c < 0 or 
+            r >= ROWS or c >= COLUMNS or 
+            board[r][c]!=word[i] or
             (r,c) in visited
         ):
             return False
