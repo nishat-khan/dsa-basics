@@ -31,7 +31,7 @@ def invert_tree(root):
 
 **Problem Statement:**
 
-Invert a binary tree.
+Validate a Binary Search Tree
 
 ```python
 def validate_binary_search_tree(root):
@@ -64,9 +64,37 @@ def in_order(root):
     def helper(root, res):
         if not root:
             return 
-        in_order(root.left, res)
+        helper(root.left, res)
         res.append(root.val)
-        in_order(root.right, res)
-    helper(root)
+        helper(root.right, res)
+    helper(root, res)
+    return res
+
+def pre_order(root):
+    """
+    Pre-order = Root, left and then right node value
+    """
+    res = []
+    def helper(root, res):
+        if not root:
+            return 
+        res.append(root.val)
+        helper(root.left, res)
+        helper(root.right, res)
+    helper(root, res)
+    return res
+
+def post_order(root):
+    """
+    Post-order = Left, right and then root node value
+    """
+    res = []
+    def helper(root, res):
+        if not root:
+            return 
+        helper(root.left, res)
+        helper(root.right, res)
+        res.append(root.val)
+    helper(root, res)
     return res
 ```
