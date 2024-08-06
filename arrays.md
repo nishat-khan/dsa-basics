@@ -10,6 +10,10 @@ Given an array of integers, find the contiguous subarray (containing at least on
 
 ```python
 def max_subarray_sum(nums):
+    """
+    Kadane's algo: past should add something positive else leave it!
+    Naive: O(n**2)
+    """
     max_sum = current_sum = nums[0]
     for num in nums[1:]:
         current_sum = max(num, current_sum + num)
