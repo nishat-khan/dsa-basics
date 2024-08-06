@@ -19,5 +19,17 @@ def print_linked_list(head):
         print(temp.val)
         temp = temp.next
 
+def reverse_linked_list(head):
+    """
+    Use a prev pointer to create the pattern from the beginning
+    """
+    prev = None
+    while head:
+        temp = head.next
+        head.next = prev
+        prev = head
+        head = temp
+    return prev
+
 Todo: Reverse k nodes in a linked list
 ``` 
